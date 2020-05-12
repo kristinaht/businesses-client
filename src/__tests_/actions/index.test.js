@@ -10,13 +10,15 @@ describe('park reducer actions', () => {
 
   it('getBusinessesSuccess should create GET_BUSINESSES_SUCCESS action', () => {
     expect(actions.getBusinessesSuccess()).toEqual({
-      type: c.GET_BUSINESSES_SUCCESS
+      type: c.GET_BUSINESSES_SUCCESS,
+      businesses
     });
   });
 
   it('getBusinessesFail should create GET_BUSINESSES_FAIL action', () => {
     expect(actions.getBusinessesFail()).toEqual({
-      type: c.GET_BUSINESSES_FAIL
+      type: c.GET_BUSINESSES_FAIL,
+      error
     })
   })
 })
