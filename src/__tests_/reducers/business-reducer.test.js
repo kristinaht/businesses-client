@@ -46,6 +46,19 @@ describe('businessReducer', () => {
       isLoading: false,
       error: null,
       businesses: 'some business'
+    });
+  });
+
+  test('should change isLoading to false and add an error message if failed to get businesses', () => {
+    const error = 'error error';
+    action = {
+      type: c.GET_BUSINESSES_FAIL,
+      error
+    };
+    expect(businessReducer(loadingState, action)).toEqual({
+      isLoading: false,
+      error: 'error error',
+      businesses: []
     })
   })
 })

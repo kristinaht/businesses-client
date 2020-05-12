@@ -19,6 +19,12 @@ export default (state=initialState, action) => {
         isLoading: false,
         businesses: action.businesses
       });
+    case c.GET_BUSINESSES_FAIL:
+      return Object.assign({}, state, {
+        // isLoading: false,
+        // error: action.error,
+        // businesses: []
+      });
     default:
       return state;
   }
