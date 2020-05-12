@@ -1,12 +1,12 @@
 import * as c from './../actions/ActionTypes';
 
-const defaultState= {
+const initialState= {
   isLoading: false,
   error: null,
   businesses: []
 }
 
-export default (state=defaultState, action) => {
+export default (state=initialState, action) => {
   switch(action.type){
     case c.REQUEST_BUSINESSES:
       return Object.assign({}, state, {
@@ -15,7 +15,10 @@ export default (state=defaultState, action) => {
         businesses: []
       });
     case c.GET_BUSINESSES_SUCCESS:
-      return Object.assign();
+      return Object.assign({}, state, {
+        isLoading: false,
+        businesses: action.businesses
+      });
     default:
       return state;
   }
