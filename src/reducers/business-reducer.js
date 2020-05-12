@@ -23,7 +23,7 @@ export default (state=initialState, action) => {
       return Object.assign({}, state, {
         isLoading: false,
         error: action.error,
-        businesses: []
+        // businesses: []
       });
     default:
       return state;
