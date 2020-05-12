@@ -12,7 +12,7 @@ class BusinessControl extends React.Component {
   }
 
   makeApiCall = () => {
-    fetch()
+    fetch("http://localhost:5000/api/businesses")
       .then(response => response.json())
       .then((jsonifiedResponse) => {
         console.log(jsonifiedResponse);
@@ -58,4 +58,4 @@ class BusinessControl extends React.Component {
   }
 }
 
-export default BusinessControl;
+export default BusinessControl; 
