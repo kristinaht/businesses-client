@@ -9,14 +9,16 @@ describe('park reducer actions', () => {
   });
 
   it('getBusinessesSuccess should create GET_BUSINESSES_SUCCESS action', () => {
-    expect(actions.getBusinessesSuccess()).toEqual({
+    const businesses = 'some business'
+    expect(actions.getBusinessesSuccess(businesses)).toEqual({
       type: c.GET_BUSINESSES_SUCCESS,
       businesses
     });
   });
 
   it('getBusinessesFail should create GET_BUSINESSES_FAIL action', () => {
-    expect(actions.getBusinessesFail()).toEqual({
+    const error = 'some error'
+    expect(actions.getBusinessesFail(error)).toEqual({
       type: c.GET_BUSINESSES_FAIL,
       error
     })

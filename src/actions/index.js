@@ -1,13 +1,15 @@
 import * as c from './ActionTypes';
 
-export const requestBusinesses = () => {
+export const requestBusinesses = () => ({
+  type: c.REQUEST_BUSINESSES
+})
 
-}
+export const getBusinessesSuccess = (businesses) => ({
+  type: c.GET_BUSINESSES_SUCCESS,
+  businesses
+})
 
-export const getBusinessesSuccess = () => {
-
-}
-
-export const getBusinessesFail = () => {
-
-}
+export const getBusinessesFail = (error) => ({
+  type: c.GET_BUSINESSES_FAIL,
+  error
+})
