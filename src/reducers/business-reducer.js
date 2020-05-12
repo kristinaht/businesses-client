@@ -14,6 +14,8 @@ export default (state=defaultState, action) => {
         error: null,
         businesses: []
       });
+    case c.GET_BUSINESSES_SUCCESS:
+      return Object.assign();
     default:
       return state;
   }
