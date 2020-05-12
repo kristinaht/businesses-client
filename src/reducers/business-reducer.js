@@ -1,3 +1,5 @@
+import * as c from './../actions/ActionTypes';
+
 const defaultState= {
   isLoading: false,
   error: null,
@@ -5,5 +7,15 @@ const defaultState= {
 }
 
 export default (state=defaultState, action) => {
-  return state;
+  switch(action.type){
+    case c.REQUEST_BUSINESSES:
+      return Object.assign({}, state, {
+        isLoading: true,
+        error: null,
+        businesses: []
+      });
+    default:
+      return state;
+  }
+ 
 }
