@@ -15,7 +15,7 @@ function SearchForm(props) {
   }
 
   return(
-    <React.Frabment>
+    <React.Fragment>
       <Form onSubmit={handleSearch}>
         <Form.Group>
           <Form.Label>Business Name: </Form.Label>
@@ -25,7 +25,7 @@ function SearchForm(props) {
         </Form.Group>
         <Button type='submit'>Search Businesses</Button>
       </Form>
-    </React.Frabment>
+    </React.Fragment>
   )
 }
 
