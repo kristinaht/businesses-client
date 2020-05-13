@@ -61,10 +61,12 @@ class BusinessControl extends React.Component {
         businessList = businesses;
       }
       return(
-      <React.Fragment>
+      <Container>
         <h1>Businesses</h1>
-        <BusinessList businessList={businesses} />
-      </React.Fragment>
+        <BusinessList businessList={businessList} />
+        <SearchForm onSearchSubmission={this.onSearchSubmission} />
+        {this.showButton()}
+      </Container>
     )}
   }
 }
