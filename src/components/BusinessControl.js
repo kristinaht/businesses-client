@@ -23,7 +23,7 @@ class BusinessControl extends React.Component {
       return(
       <React.Fragment>
         <h1>Businesses</h1>
-        <BusinessList parkList={businesses} />
+        <BusinessList businessList={businesses} />
       </React.Fragment>
     )}
   }
