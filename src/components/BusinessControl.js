@@ -1,61 +1,46 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { makeApiCall } from './../actions';
 
 class BusinessControl extends React.Component {
   constructor(props) {
     super(props);
-    this.state={
-      error: null,
-      isLoaded: false,
-      businesses: []
-    };
-  }
-
-  makeApiCall = () => {
-    fetch("http://localhost:5000/api/businesses")
-      .then(response => response.json())
-      .then((jsonifiedResponse) => {
-        console.log(jsonifiedResponse);
-        if(jsonifiedResponse.status === 200 & jsonifiedResponse.ok) {
-          this.setState({
-            isLoaded: true,
-            parks: jsonifiedResponse.results
-          })
-        } else {
-          return false;
-        }
-      })
-      .catch((error) => {
-        this.setState({
-          isLoaded: true,
-          error
-        });
-      })
   }
 
   componentDidMount() {
-    this.makeApiCall();
+    const { dispatch } = this.props;
+    dispatch(makeApiCall());
   }
 
   render() {
-    const {error, isLoaded, businesses } = this.state;
+    const {error, isLoading, businesses } = this.props;
     if(error) {
       return <React.Fragment>Error: {error.message}</React.Fragment>
-    } else if(!isLoaded) {
+    } else if(isLoading) {
       return <React.Fragment>Loading...</React.Fragment>
     } else {
       return(
-        <React.Fragment>
-          <h1>Business Control</h1>
+      <React.Fragment>
+        <h1>Businesses</h1>
+        <ul>
           {businesses.map((business, index) =>
-          <div key={index}>
-            <h2>{business.name}</h2>
-            <h3>{business.description}</h3>
-          </div>)}
-        </React.Fragment>
-      )
-    }
+            <li key={index}>
+              <h2 key={index}>{business.name}</h2>
+              <h3>{business.description}</h3>
+            </li>
+          )}
+        </ul>
+      </React.Fragment>
+    )}
   }
 }
 
-export default BusinessControl; 
+const mapStateToProps = state => {
+  return {
+    businesses: state.businesses,
+    isLoading: state.isLoading,
+    error: state.error
+  }
+}
+
+export default connect(mapStateToProps)(BusinessControl);
