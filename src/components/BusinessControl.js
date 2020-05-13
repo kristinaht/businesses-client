@@ -52,6 +52,14 @@ class BusinessControl extends React.Component {
     } else if(isLoading) {
       return <React.Fragment>Loading...</React.Fragment>
     } else {
+      let businessList;
+      if(this.state.searchName !== null || this.state.searchDescription !== null) {
+        businessList = businesses.filter((business) => {
+          return business.name.indludes(this.state.searchName) && business.description.includes(this.state.searchDescription);
+        });
+      }else {
+        businessList = businesses;
+      }
       return(
       <React.Fragment>
         <h1>Businesses</h1>
