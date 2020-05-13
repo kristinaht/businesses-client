@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { makeApiCall } from './../actions';
+import BusinessList from './BusinessList';
 
 class BusinessControl extends React.Component {
   constructor(props) {
@@ -22,14 +23,7 @@ class BusinessControl extends React.Component {
       return(
       <React.Fragment>
         <h1>Businesses</h1>
-        <ul>
-          {businesses.map((business, index) =>
-            <li key={index}>
-              <h2 key={index}>{business.name}</h2>
-              <h3>{business.description}</h3>
-            </li>
-          )}
-        </ul>
+        <BusinessList parkList={businesses} />
       </React.Fragment>
     )}
   }
